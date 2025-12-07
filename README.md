@@ -89,8 +89,8 @@ npm run dev
 ## 🛡️ Admin Setup
 
 1.  **Log in as Admin:**
-    *   **Email:** `manafmajid992@gmail.com`
-    *   **Password:** `960604499@6230442`
+    *   You will get the creds 
+
 
 2.  **Create Challenges:**
     *   Go to **"Admin Panel"**.
