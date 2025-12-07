@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>AOU Coding Arena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              aou: {
+                green: '#00ff41',
+                dark: '#0d1117',
+                darker: '#010409',
+                panel: '#161b22',
+                border: '#30363d',
+                accent: '#238636',
+              }
+            },
+            fontFamily: {
+              mono: ['"Fira Code"', 'monospace'],
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'glitch': 'glitch 1s linear infinite',
+              'blood': 'blood 2s ease-in-out infinite',
+              'slide-in': 'slideIn 0.3s ease-out forwards',
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+            },
+            keyframes: {
+              glitch: {
+                '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
+                '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
+                '62%': { transform: 'translate(0,0) skew(5deg)' },
+              },
+              blood: {
+                '0%, 100%': { boxShadow: '0 0 20px #ff0000' },
+                '50%': { boxShadow: '0 0 50px #ff0000' },
+              },
+              slideIn: {
+                '0%': { transform: 'translateX(20px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #0d1117;
+        color: #c9d1d9;
+        /* Subtle Grid Background */
+        background-image: linear-gradient(rgba(48, 54, 61, 0.2) 1px, transparent 1px),
+                          linear-gradient(90deg, rgba(48, 54, 61, 0.2) 1px, transparent 1px);
+        background-size: 30px 30px;
+      }
+      
+      /* Scrollbar Styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0d1117; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #30363d; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #00ff41; 
+      }
+
+      /* CRT Scanline Effect */
+      .scanline {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(
+          to bottom,
+          rgba(255,255,255,0),
+          rgba(255,255,255,0) 50%,
+          rgba(0,0,0,0.1) 50%,
+          rgba(0,0,0,0.1)
+        );
+        background-size: 100% 4px;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.15;
+      }
+
+      .animate-shake {
+        animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+      }
+
+      @keyframes shake {
+        10%, 90% { transform: translate3d(-1px, 0, 0); }
+        20%, 80% { transform: translate3d(2px, 0, 0); }
+        30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+        40%, 60% { transform: translate3d(4px, 0, 0); }
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "@monaco-editor/react": "https://aistudiocdn.com/@monaco-editor/react@^4.7.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "socket.io-client": "https://aistudiocdn.com/socket.io-client@^4.8.1",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "vite": "https://aistudiocdn.com/vite@^7.2.6"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div class="scanline"></div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
