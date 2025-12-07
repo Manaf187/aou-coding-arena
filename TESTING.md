@@ -5,7 +5,7 @@
 Before any competition, run through this list:
 
 ### Authentication
-- [ ] **Admin Login**: Log in with `manafmajid992@gmail.com` / `960604499@6230442`. Verify "Admin Panel" access.
+- [ ] **Admin Login**: Log in with `the given creds`. Verify "Admin Panel" access.
 - [ ] **Student Register**: Create a new account. Verify auto-login.
 - [ ] **Student Login**: Log out and log back in with new credentials.
 - [ ] **Validation**: Try empty fields, invalid emails.
@@ -64,14 +64,4 @@ For a competition with 100+ students, use **Artillery** to simulate load.
 - [ ] **Secrets**: Ensure `API_KEY` and `JWT_SECRET` are not in client-side JS bundles.
 
 ## 4. How to Reset Competition
-
-To clear the leaderboard and submissions before the event:
-
-1. **Access Server**: SSH into the backend or use Railway CLI.
-2. **Backup**: `cp arena.db arena_backup.db`
-3. **Reset**:
-   ```sql
-   DELETE FROM submissions;
-   UPDATE users SET score = 0; -- If you track score on user table
-   ```
-   *Or simply delete the `.db` file and restart to re-seed.*
+1. in the admin panel you can reset everything
